@@ -17,7 +17,7 @@ const Header = () => {
           </h1>
         </Link>
         <p className="m-0" style={{ fontSize: '1.75rem', fontWeight: '700' }}>
-          Meet your new programming pals.
+          Have a wonderful day!.
         </p>
         <div>
           {Auth.loggedIn() ? (
