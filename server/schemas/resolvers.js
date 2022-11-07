@@ -12,6 +12,7 @@ const resolvers = {
         },
         // By adding context to our query, we can retrieve the logged in user without specifically searching for them
         me: async (parent, args, context) => {
+            console.log(context.user)
             if (context.user) {
                 return Profile.findOne({ _id: context.user._id });
             }
@@ -66,16 +67,16 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in!');
         },
         // Make it so a logged in user can only remove a skill from their own profile
-        removeSkill: async (parent, { comment }, context) => {
-            if (context.user) {
-                return Profile.findOneAndUpdate(
-                    { _id: context.user._id },
-                    { $pull: { comments: comment } },
-                    { new: true }
-                );
-            }
-            throw new AuthenticationError('You need to be logged in!');
-        },
+        // removeSkill: async (parent, { comment }, context) => {
+        //     if (context.user) {
+        //         return Profile.findOneAndUpdate(
+        //             { _id: context.user._id },
+        //             { $pull: { comments: comment } },
+        //             { new: true }
+        //         );
+        //     }
+        //     throw new AuthenticationError('You need to be logged in!');
+        // },
     },
 };
 

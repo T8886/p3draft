@@ -19,10 +19,10 @@ const profileSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  birthDate: {
+  ///sign
+  sign: {
   type: String,
   required: true,
-  unique: true,
   trim: true,
 },
   comments: [
